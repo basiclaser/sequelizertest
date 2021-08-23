@@ -3,12 +3,12 @@ const { Sequelize, Model, DataTypes } = pkg;
 
 export default async function createDatabaseConnection() {
     const sequelize = new Sequelize({
-        dialect: process.env.dialect,
-        host: process.env.host,
-        username: process.env.username,
-        password: process.env.password,
-        database: process.env.database,
-        port: process.env.port,
+        dialect: process.env.DB_dialect,
+        host: process.env.DB_host,
+        username: process.env.DB_username,
+        password: process.env.DB_password,
+        database: process.env.DB_database,
+        port: process.env.DB_port,
         logging: console.log,
     })
     try {

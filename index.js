@@ -1,4 +1,4 @@
-import config from 'dotenv'
+import {config} from 'dotenv'
 config()
 
 import express from 'express';
@@ -13,3 +13,4 @@ app.get("/", (req, res) => {
 createDatabaseConnection().then(() => {
     app.listen(3000, ()=> {console.log("sall good")});
 });
+
