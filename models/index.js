@@ -1,5 +1,9 @@
+import createUserModel from './User.js';
 import pkg from 'sequelize';
 const { Sequelize, Model, DataTypes } = pkg;
+
+
+//TODO: MAKE THIS A SINGLETON 
 
 export default async function createDatabaseConnection() {
     const sequelize = new Sequelize({
@@ -15,7 +19,22 @@ export default async function createDatabaseConnection() {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
     } catch (error) {
-        console.error('Unable to connect to the database:', error);
+        throw new Error('Unable to connect to the database:', error);
     }
+  
+
     return "Ok"
 }
+
+
+// const User = createUserModel(sequelize) 
+// const users = await User.findAll({})
+// console.log(users)
+
+// const user1 = await User.create({
+//     first_name: 'John',
+//     last_name: 'Doe',
+//     age: 30,
+//     active: true,
+// })
+// console.log(user1)
